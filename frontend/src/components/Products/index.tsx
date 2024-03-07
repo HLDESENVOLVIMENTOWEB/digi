@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { fetchProducts } from '../../services/apiService'; 
 import { StoreContainer, FilterInput, CartIndicator, CartIcon, CartValue } from './styles';
 import { useNavigate } from 'react-router-dom';
 import ProductCardComponent from '../ProductCard';
 import { Product } from '../../types/Product';
+import { CartContext } from '../../contexts/CartContext';
 
 const Products = () => {
   const [filter, setFilter] = useState('');
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate(); 
 
+
+  const { cartItems } = useContext(CartContext);
+
+  const total = cartItems.reduce((acc: any, item: any) => acc + parseFloat(item.product.price) * item.quantity, 0);
   useEffect(() => {
     const initFetch = async () => {
       try {
@@ -23,7 +28,7 @@ const Products = () => {
     initFetch();
   }, []);
 
-  const cartTotal = 299.98; 
+  const cartTotal = total; 
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(filter.toLowerCase())

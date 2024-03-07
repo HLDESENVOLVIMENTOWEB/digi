@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const ButtonContainer = styled.div`
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+`;
+
+
 export const StoreContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); // Cria um layout de grade flexível
@@ -25,6 +32,7 @@ export const ProductCard = styled.div`
 export const ProductImage = styled.img`
   width: 100%;
   height: 180px;
+  min-height: 180px;
   object-fit: cover;
 `;
 
@@ -32,6 +40,8 @@ export const ProductInfo = styled.div`
   padding: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   gap: 10px;
 `;
 
@@ -56,9 +66,9 @@ export const FilterInput = styled.input`
   border-radius: 8px;
   border: 1px solid #ddd;
   width: 100%;
-  box-sizing: border-box; // Garante que o padding não aumente o tamanho do input
-  max-width: 400px; // Limita a largura do input para melhor estética
-  display: block; // Faz o input ocupar sua própria linha
+  box-sizing: border-box; 
+  max-width: 400px; 
+  display: block; 
   margin-left: auto;
   margin-right: auto;
 `;
@@ -89,8 +99,28 @@ export const BuyButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  margin-top: 10px;
 
   &:hover {
     background-color: darkblue;
   }
 `;
+
+
+
+export const BuyButton2 = styled.button`
+  background-color: transparent;
+  color: blue; /* Mudando a cor do texto para azul */
+  padding: 10px 15px;
+  border: 2px solid blue; /* Adicionando uma borda azul */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px;
+
+  &:hover {
+    background-color: blue; /* Mudando a cor de fundo ao passar o mouse */
+    color: white; /* Mudando a cor do texto para branco ao passar o mouse */
+  }
+`;
+
