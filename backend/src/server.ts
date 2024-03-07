@@ -1,13 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import cartRoutes from './routes/cartRoutes';
+import cors from 'cors'; 
 import productRoutes from './routes/productRoutes';
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
+
+app.use(cors());
+
 
 app.use(bodyParser.json());
-app.use('/api', cartRoutes);
 app.use('/api', productRoutes);
 
 app.listen(PORT, () => {
